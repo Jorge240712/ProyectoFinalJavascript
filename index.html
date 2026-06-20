@@ -1,0 +1,528 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>LingoQuest Pro</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ==========================
+         PANTALLA DE INICIO
+    =========================== -->
+
+    <section id="welcomeScreen"
+             class="screen active">
+
+        <div class="welcome-container">
+
+            <div class="hero-mascot">
+                🦉
+            </div>
+
+            <h1>LingoQuest Pro</h1>
+
+            <p>
+                Aprende idiomas con desafíos,
+                niveles, XP, logros y rutas
+                de aprendizaje personalizadas.
+            </p>
+
+            <div class="language-grid">
+
+                <button class="language-card selected"
+                        data-lang="english">
+                    🇺🇸
+                    <span>English</span>
+                </button>
+
+                <button class="language-card"
+                        data-lang="french">
+                    🇫🇷
+                    <span>Français</span>
+                </button>
+
+                <button class="language-card"
+                        data-lang="italian">
+                    🇮🇹
+                    <span>Italiano</span>
+                </button>
+
+                <button class="language-card"
+                        data-lang="german">
+                    🇩🇪
+                    <span>Deutsch</span>
+                </button>
+
+                <button class="language-card"
+                        data-lang="portuguese">
+                    🇧🇷
+                    <span>Português</span>
+                </button>
+
+                <button class="language-card"
+                        data-lang="spanish">
+                    🇪🇸
+                    <span>Español</span>
+                </button>
+
+            </div>
+
+            <input type="text"
+                   id="playerName"
+                   placeholder="Ingresa tu nombre">
+
+            <div class="welcome-buttons">
+
+                <button id="startBtn"
+                        class="main-btn">
+
+                    🚀 Comenzar
+
+                </button>
+
+                <button id="resetBtn"
+                        class="danger-btn">
+
+                    🗑 Nuevo jugador
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+         TEST DE NIVELACIÓN
+    =========================== -->
+
+    <section id="placementScreen"
+             class="screen">
+
+        <div class="placement-container">
+
+            <h1>
+                📋 Test de Nivelación
+            </h1>
+
+            <p>
+                Responde 5 preguntas para
+                determinar tu nivel.
+            </p>
+
+            <div class="progress">
+
+                <div id="placementProgress"
+                     class="progress-fill">
+
+                </div>
+
+            </div>
+
+            <div id="placementQuestion">
+
+            </div>
+
+            <div id="placementResult"
+                 class="hidden">
+
+                <h2>
+                    Resultado
+                </h2>
+
+                <p id="levelResult">
+
+                </p>
+
+                <button id="startLearningBtn"
+                        class="main-btn">
+
+                    Comenzar Aprendizaje
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+         DASHBOARD
+    =========================== -->
+
+    <section id="dashboardScreen"
+             class="screen">
+
+        <header>
+
+            <div class="logo">
+                🦉 LingoQuest
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    ❤️ <span id="hearts">5</span>
+                </div>
+
+                <div class="stat">
+                    🔥 <span id="streak">0</span>
+                </div>
+
+                <div class="stat">
+                    ⭐ <span id="xp">0</span>
+                </div>
+
+                <div class="stat">
+                    🪙 <span id="coins">0</span>
+                </div>
+
+                <div class="stat">
+                    🏆 <span id="level">1</span>
+                </div>
+
+            </div>
+
+            <button id="themeBtn">
+                🌙
+            </button>
+
+        </header>
+
+        <main>
+
+            <!-- PERFIL -->
+
+            <section class="profile-card">
+
+                <div class="avatar-area">
+
+                    <div class="avatar">
+                        🧑‍🎓
+                    </div>
+
+                    <div>
+
+                        <h2 id="playerDisplay">
+                            Jugador
+                        </h2>
+
+                        <p id="playerRank">
+                            Nivel A1
+                        </p>
+
+                        <p id="selectedLanguage">
+                            English
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="level-info">
+
+                    Nivel
+
+                    <span id="profileLevel">
+                        1
+                    </span>
+
+                </div>
+
+                <div class="xp-container">
+
+                    <div id="xpBar"
+                         class="xp-bar">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ESTADÍSTICAS -->
+
+            <section class="quick-stats">
+
+                <div class="quick-card">
+
+                    <h3>
+                        📚 Lecciones
+                    </h3>
+
+                    <span id="completedLessons">
+                        0
+                    </span>
+
+                </div>
+
+                <div class="quick-card">
+
+                    <h3>
+                        🎯 Precisión
+                    </h3>
+
+                    <span id="accuracy">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="quick-card">
+
+                    <h3>
+                        ⏱ Tiempo
+                    </h3>
+
+                    <span id="studyTime">
+                        0 min
+                    </span>
+
+                </div>
+
+            </section>
+
+            <!-- LOGROS -->
+
+            <section class="achievements-section">
+
+                <h2>
+                    🏅 Logros
+                </h2>
+
+                <div class="achievement-grid">
+
+                    <div class="achievement">
+                        🔥 Primera Racha
+                    </div>
+
+                    <div class="achievement">
+                        ⭐ 100 XP
+                    </div>
+
+                    <div class="achievement">
+                        🧠 10 Respuestas
+                    </div>
+
+                    <div class="achievement">
+                        🏆 Nivel 5
+                    </div>
+
+                    <div class="achievement">
+                        👑 Nivel 10
+                    </div>
+
+                    <div class="achievement">
+                        🌍 Políglota
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- RUTA DE APRENDIZAJE -->
+
+            <section class="path-section">
+
+                <h2>
+                    📚 Ruta de Aprendizaje
+                </h2>
+
+                <div class="path-container">
+
+                    <button class="lesson-node unlocked"
+                            data-lesson="1">
+
+                        🌟 Vocabulary
+
+                    </button>
+
+                    <button class="lesson-node unlocked"
+                            data-lesson="2">
+
+                        ✈ Travel
+
+                    </button>
+
+                    <button class="lesson-node unlocked"
+                            data-lesson="3">
+
+                        🌿 Environment
+
+                    </button>
+
+                    <button class="lesson-node unlocked"
+                            data-lesson="4">
+
+                        💻 Technology
+
+                    </button>
+
+                    <button class="lesson-node unlocked"
+                            data-lesson="5">
+
+                        💼 Business
+
+                    </button>
+
+                    <button class="lesson-node unlocked"
+                            data-lesson="6">
+
+                        🎭 Culture
+
+                    </button>
+
+                    <button class="lesson-node unlocked"
+                            data-lesson="7">
+
+                        🗣 Debate
+
+                    </button>
+
+                    <button class="lesson-node locked">
+
+                        🔒 Advanced
+
+                    </button>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </section>
+
+    <!-- ==========================
+         LECCIÓN
+    =========================== -->
+
+    <section id="lessonScreen"
+             class="screen">
+
+        <div class="lesson-container">
+
+            <div class="lesson-top">
+
+                <button id="backBtn">
+                    ⬅
+                </button>
+
+                <div class="progress">
+
+                    <div id="lessonProgress"
+                         class="progress-fill">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="statusBox">
+
+                Selecciona una respuesta
+
+            </div>
+
+            <div id="questionContainer">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+         MODAL RECOMPENSA
+    =========================== -->
+
+    <div id="rewardModal"
+         class="modal">
+
+        <div class="modal-content">
+
+            <h2>
+                🎉 ¡Lección completada!
+            </h2>
+
+            <p id="rewardText">
+                Has ganado recompensas.
+            </p>
+
+            <button id="continueBtn"
+                    class="main-btn">
+
+                Continuar
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================
+         LOADING
+    =========================== -->
+
+    <div id="loadingOverlay">
+
+        <div class="loader"></div>
+
+        <p>
+            Preparando desafío...
+        </p>
+
+    </div>
+
+    <!-- ==========================
+         ERROR
+    =========================== -->
+
+    <div id="errorBox">
+
+    </div>
+
+    <!-- ==========================
+         FOOTER
+    =========================== -->
+
+    <footer>
+
+        <p>
+            LingoQuest Pro © 2026
+        </p>
+
+    </footer>
+
+    <!-- JS -->
+
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/app.js"></script>
+
+</body>
+
+</html>

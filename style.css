@@ -1,0 +1,635 @@
+﻿/* ==========================
+   VARIABLES
+========================== */
+
+:root{
+    --primary:#58cc02;
+    --primary-dark:#46a302;
+
+    --bg:#f7f9fc;
+    --card:#ffffff;
+
+    --text:#1f2937;
+    --text-light:#64748b;
+
+    --danger:#ff4d4d;
+
+    --border:#e5e7eb;
+
+    --shadow:
+    0 10px 25px rgba(0,0,0,.08);
+}
+
+body.dark{
+    --bg:#0f172a;
+    --card:#1e293b;
+
+    --text:#f8fafc;
+    --text-light:#cbd5e1;
+
+    --border:#334155;
+}
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Nunito",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    transition:.3s;
+}
+
+/* ==========================
+   PANTALLAS
+========================== */
+
+.screen{
+    display:none;
+}
+
+.screen.active{
+    display:block;
+}
+
+/* ==========================
+   INICIO
+========================== */
+
+.welcome-container{
+    max-width:1100px;
+    margin:auto;
+    padding:50px 20px;
+    text-align:center;
+}
+
+.hero-mascot{
+    font-size:6rem;
+    animation:float 3s infinite;
+}
+
+@keyframes float{
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+
+h1{
+    font-size:3rem;
+    margin:15px 0;
+}
+
+p{
+    color:var(--text-light);
+}
+
+.language-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(150px,1fr));
+
+    gap:15px;
+
+    margin:35px 0;
+}
+
+.language-card{
+    background:var(--card);
+    border:none;
+    border-radius:24px;
+    padding:20px;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    transition:.25s;
+    color:var(--text);
+    font-weight:800;
+}
+
+.language-card:hover{
+    transform:translateY(-5px);
+}
+
+.language-card.selected{
+    background:var(--primary);
+    color:white;
+}
+
+.language-card span{
+    display:block;
+    margin-top:10px;
+}
+
+#playerName{
+    width:100%;
+    max-width:450px;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    border:2px solid var(--border);
+
+    background:var(--card);
+
+    color:var(--text);
+
+    font-size:1rem;
+}
+
+.welcome-buttons{
+    margin-top:20px;
+}
+
+/* ==========================
+   BOTONES
+========================== */
+
+.main-btn,
+.danger-btn,
+#backBtn,
+#continueBtn{
+
+    border:none;
+
+    border-radius:16px;
+
+    padding:14px 28px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    margin:10px;
+
+    transition:.2s;
+}
+
+.main-btn{
+    background:var(--primary);
+    color:white;
+}
+
+.main-btn:hover{
+    transform:scale(1.05);
+}
+
+.danger-btn{
+    background:var(--danger);
+    color:white;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header{
+    background:var(--card);
+
+    padding:15px 25px;
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+}
+
+.logo{
+    font-size:1.4rem;
+    font-weight:900;
+}
+
+.stats{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.stat{
+    background:var(--bg);
+
+    padding:10px 14px;
+
+    border-radius:14px;
+
+    font-weight:800;
+}
+
+#themeBtn{
+    width:55px;
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    font-size:1.4rem;
+
+    cursor:pointer;
+
+    background:gold;
+}
+
+/* ==========================
+   MAIN
+========================== */
+
+main{
+    max-width:1200px;
+    margin:auto;
+    padding:25px;
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+
+.profile-card,
+.quick-card,
+.achievement,
+.lesson-node,
+.modal-content,
+#questionContainer,
+#statusBox{
+
+    background:var(--card);
+
+    color:var(--text);
+
+    border-radius:24px;
+
+    box-shadow:var(--shadow);
+}
+
+/* ==========================
+   PERFIL
+========================== */
+
+.profile-card{
+    padding:25px;
+    margin-bottom:20px;
+}
+
+.avatar-area{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.avatar{
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:2rem;
+}
+
+#playerRank,
+#selectedLanguage{
+    color:var(--text-light);
+}
+
+/* ==========================
+   XP
+========================== */
+
+.xp-container{
+    margin-top:20px;
+
+    height:22px;
+
+    background:#dbeafe;
+
+    border-radius:999px;
+
+    overflow:hidden;
+}
+
+.xp-bar{
+    height:100%;
+    width:0%;
+
+    background:
+    linear-gradient(
+        90deg,
+        #58cc02,
+        #8fff66
+    );
+
+    transition:1s;
+}
+
+/* ==========================
+   ESTADÍSTICAS
+========================== */
+
+.quick-stats{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+.quick-card{
+    padding:20px;
+    text-align:center;
+}
+
+.quick-card span{
+    display:block;
+
+    margin-top:10px;
+
+    font-size:2rem;
+
+    font-weight:900;
+}
+
+/* ==========================
+   LOGROS
+========================== */
+
+.achievement-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:15px;
+
+    margin:20px 0;
+}
+
+.achievement{
+    padding:20px;
+    text-align:center;
+}
+
+/* ==========================
+   RUTA
+========================== */
+
+.path-container{
+    display:grid;
+    gap:15px;
+}
+
+.lesson-node{
+    border:none;
+
+    padding:20px;
+
+    font-weight:800;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    color:var(--text);
+}
+
+.lesson-node:hover{
+    transform:translateY(-3px);
+}
+
+.lesson-node.locked{
+    opacity:.5;
+}
+
+/* ==========================
+   TEST NIVELACIÓN
+========================== */
+
+.placement-container{
+    max-width:850px;
+    margin:auto;
+    padding:40px 20px;
+    text-align:center;
+}
+
+.hidden{
+    display:none;
+}
+
+/* ==========================
+   LECCIONES
+========================== */
+
+.lesson-container{
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+}
+
+.lesson-top{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.progress{
+    flex:1;
+
+    height:18px;
+
+    background:var(--border);
+
+    border-radius:999px;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0;
+
+    background:var(--primary);
+}
+
+#statusBox{
+    padding:15px;
+    margin:20px 0;
+}
+
+#questionContainer{
+    padding:25px;
+}
+
+.options{
+    display:grid;
+    gap:15px;
+    margin-top:20px;
+}
+
+.option-btn{
+    background:var(--bg);
+
+    color:var(--text);
+
+    border:2px solid var(--border);
+
+    padding:15px;
+
+    border-radius:16px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.option-btn:hover{
+    border-color:var(--primary);
+}
+
+/* ==========================
+   MODAL
+========================== */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.5);
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.modal-content{
+    width:90%;
+    max-width:450px;
+    padding:30px;
+    text-align:center;
+}
+
+/* ==========================
+   LOADING
+========================== */
+
+#loadingOverlay{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.7);
+
+    color:white;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+}
+
+.loader{
+    width:60px;
+    height:60px;
+
+    border:6px solid rgba(255,255,255,.3);
+
+    border-top:6px solid white;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* ==========================
+   ERROR
+========================== */
+
+#errorBox{
+    display:none;
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    background:var(--danger);
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:15px;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:var(--text-light);
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .avatar-area{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    h1{
+        font-size:2.2rem;
+    }
+
+    .language-grid{
+        grid-template-columns:1fr;
+    }
+
+}
